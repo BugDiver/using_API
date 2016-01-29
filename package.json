@@ -1,0 +1,22 @@
+{
+  "name": "learn_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "githubRepos.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BugDiver/using_API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BugDiver/using_API/issues"
+  },
+  "homepage": "https://github.com/BugDiver/using_API#readme",
+  "dependencies": {
+    "unirest": "^0.4.2"
+  }
+}
