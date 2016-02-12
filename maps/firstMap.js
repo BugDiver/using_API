@@ -5,7 +5,8 @@ var toggleBounce = function(marker) {
     if(marker.getAnimation() !== null) {
         marker.setAnimation(null);
     }else{
-        marker.setAnimation(google.maps.Animation.BOUNCE);
+        console.log(google.maps.Animation);
+        marker.setAnimation(google.maps.Animation.DROP);
     }
 };
 
@@ -15,15 +16,16 @@ var setMarker = function(position ,map){
         position: position,
         map: map
     });
+    marker.setMap(null);
     marker.setMap(map);
     marker.addListener('click',function(){toggleBounce(marker)});
 };
 
 var showLocation = function(map){
     var address = $('#location').val();
-    var url = 'http://maps.googleapis.com/maps/api/geocode/json?address='+address;
+    var url = 'http://maps.googleapis.com/maps/api/geocode/json?address='+address.replace(/\s/gi,'+');
     $.get(url,function(data){
-        var address = data.results[0].geometry.bounds.northeast;
+        var address = data.results[0].geometry.location;
         initialLocation = new google.maps.LatLng(address.lat,address.lng);
         map.setCenter(initialLocation);
         setMarker(initialLocation,map);
